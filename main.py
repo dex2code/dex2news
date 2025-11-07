@@ -39,7 +39,7 @@ async def main() -> None:
                             logger.info(f"Successfully sent article with {news_article.id=} to TG chat")
 
         try:
-            logger.info(f"Main loop is going to sleep for {app_config.news_period_hours*60*60}:, seconds...")
+            logger.info(f"Main loop is going to sleep for {app_config.news_period_hours*60*60:,} seconds...")
             await asyncio.wait_for(
                 fut=sleep_event.wait(),
                 timeout=app_config.news_period_hours*60*60
