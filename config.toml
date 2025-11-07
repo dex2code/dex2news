@@ -1,0 +1,22 @@
+app_name = "Nuntius Mutationum"
+app_version = "1.0.1"
+
+news_api_endpoint = "https://gnews.io/api/v4/top-headlines"
+news_api_timeout_sec = 5
+news_lang = "ru"
+news_categories = [
+    "world",
+    "business",
+    "technology",
+    "science",
+    "health"
+]
+news_max_articles = 3
+news_delay_hours = 12
+news_period_hours = 3
+
+log_path = "logs/main.log"
+log_level = "INFO"
+log_enqueue = true
+log_rotation = "1 day"
+log_retention = "1 month"
