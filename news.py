@@ -13,7 +13,7 @@ class SourceModel(BaseModel):
     )
 
     id: str = Field(default="")
-    name: str = Field(default="")
+    name: str = Field(..., min_length=1)
     url: str = Field(default="")
     country: str = Field(default="")
 
@@ -24,15 +24,15 @@ class ArticlesModel(BaseModel):
         extra='ignore'
     )
 
-    id: str = Field(default="")
-    title: str = Field()
-    description: str = Field()
+    id: str = Field(..., min_length=1)
+    title: str = Field(..., min_length=1)
+    description: str = Field(..., min_length=1)
     content: str = Field(default="")
     url: AnyHttpUrl = Field()
     image: AnyHttpUrl = Field()
-    publishedAt: str = Field()
+    publishedAt: str = Field(default="")
     lang: str = Field(default="")
-    source: SourceModel = Field(default_factory=SourceModel)
+    source: SourceModel
 
 
 class NewsModel(BaseModel):
@@ -42,7 +42,7 @@ class NewsModel(BaseModel):
     )
 
     totalArticles: int = Field(default=0)
-    articles: List[ArticlesModel] = Field(default_factory=List)
+    articles: List[ArticlesModel]
 
 
 @in_out_debug
